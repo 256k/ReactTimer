@@ -1,6 +1,9 @@
 
 
 .top-bar {
+    .active-link {
+        font-weight: bold;
+    }
     background: $navbkcolor;
     ul {
         background: $navbkcolor;
