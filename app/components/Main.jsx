@@ -1,4 +1,3 @@
-var React = require('react');
 var Nav = require('nav');
 var Timer = require('timer');
 
