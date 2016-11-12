@@ -1,5 +1,4 @@
 var Nav = require('nav');
-var Timer = require('timer');
 
 var Main = (props) => {
   return (

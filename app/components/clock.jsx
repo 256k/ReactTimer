@@ -1,7 +1,7 @@
 var Clock = React.createClass({
     getDefaultProps: function() {
         return {
-            totalSeconds: 67
+            totalSeconds: 0
         }
     },
     propTypes: {
@@ -20,9 +20,7 @@ var Clock = React.createClass({
 
     },
     render: function(){
-        console.log(this.props);
         var {totalSeconds} = this.props; //es6 destructuring
-        debugger;
 
         return (
             <div className="clock">
