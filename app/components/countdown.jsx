@@ -1,4 +1,5 @@
 var CountdownForm = require("countdownform");
+var Controls = require('controls');
 
 
 var Countdown = React.createClass({
@@ -49,6 +50,7 @@ var Countdown = React.createClass({
                 <h1 className="title">Countdown Timer "{this.state.countdownStatus}"</h1>
                 <Clock totalSeconds={this.state.time}/>
                 <CountdownForm onSearch={this.setTime} button={this.state.button}/>
+                <Controls/>
             </div>
         )
     }

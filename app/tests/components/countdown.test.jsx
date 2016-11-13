@@ -1,8 +1,3 @@
-var expect = require ('expect');
-var ReactDOM = require('react-dom');
-var TestUtils = require ('react-addons-test-utils');
-var $ = require('jQuery');
-var React = require('react');
 var Countdown = require('countdown');
 
 describe('Countdown', () => {
