@@ -6,9 +6,18 @@ var Countdown = React.createClass({
     getInitialState: function (){
         return {
             time: 0,
-            countdownStatus: 'stopped',
-            button: 'Start'
+            countdownStatus: 'stopped'
         }
+    }, onReset: function(){
+        this.setState({
+            time: 0,
+            countdownStatus: 'stopped'
+        });
+    },
+    onPause: function(){
+        this.setState({
+            countdownStatus: 'stopped'
+        });
     },
     startTimer: function(){
         this.timer = setInterval( () => {
@@ -29,11 +38,9 @@ var Countdown = React.createClass({
             switch (this.state.countdownStatus){
                 case "started":
                     this.startTimer();
-                    this.setState({button: 'Stop'});
                     break;
                 case 'stopped':
                     clearInterval(this.timer);
-                    this.setState({button: 'Start'});
                     break;
             }
         }
@@ -47,10 +54,11 @@ var Countdown = React.createClass({
     render: function(){
         return (
             <div>
-                <h1 className="title">Countdown Timer "{this.state.countdownStatus}"</h1>
+                <h1 className="title">Countdown Timer</h1>
                 <Clock totalSeconds={this.state.time}/>
-                <CountdownForm onSearch={this.setTime} button={this.state.button}/>
-                <Controls/>
+                {this.state.countdownStatus === 'started' ? <Controls onReset={this.onReset} onPause= {this.onPause} Status={this.state.countdownStatus}/> : <CountdownForm onSearch={this.setTime}/>}
+
+
             </div>
         )
     }
