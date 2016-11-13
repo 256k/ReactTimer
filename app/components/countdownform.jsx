@@ -3,7 +3,7 @@ var CountdownForm = React.createClass({
     onFormSubmit: function(e) {
         e.preventDefault();
         var time = this.refs.time.value;
-        if (time.match(/^[0-9]*$/)) {
+        if (time.match(/^[0-9]+$/)) {
             this.refs.time.value = "";
             this.props.onSearch(parseInt(time, 10));
         } else {
