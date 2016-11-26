@@ -1,15 +1,21 @@
 .clock {
-    font-size: 28px;
-    width: 200px;
-    height: 200px;
-    line-height: 200px;
+    width: 300px;
+    height: 300px;
+    line-height: 300px;
     text-align: center;
     margin: 10px auto;
-    border: 3px solid lightblue;
+    border: 3px solid rgb(73, 117, 194);
+    background: rgb(99, 136, 199);
     border-radius: 50%;
 }
 
 .title {
     text-align: center;
     margin: auto;
+}
+
+
+.clock-text{
+color: white;
+font-size: 65px;
 }

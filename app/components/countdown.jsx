@@ -15,9 +15,17 @@ var Countdown = React.createClass({
         });
     },
     onPause: function(){
-        this.setState({
-            countdownStatus: 'stopped'
-        });
+        if (this.state.countdownStatus === 'paused'){
+            this.setState({
+                countdownStatus: 'started'
+            });
+        } else if (this.state.countdownStatus === 'started'){
+            this.setState({
+                countdownStatus: 'paused'
+            });
+        }
+
+
     },
     startTimer: function(){
         this.timer = setInterval( () => {
@@ -42,6 +50,10 @@ var Countdown = React.createClass({
                 case 'stopped':
                     clearInterval(this.timer);
                     break;
+                    case 'paused':
+                    clearInterval(this.timer);
+                    this.timer = undefined;
+                    break;
             }
         }
     },
@@ -51,12 +63,27 @@ var Countdown = React.createClass({
             countdownStatus: 'started'
         });
     },
+    buttonrender: function(){
+        if (this.state.countdownStatus === 'started'){
+        return   <Controls onReset={this.onReset} onPause= {this.onPause} Status={this.state.countdownStatus}/>
+    } else if (this.state.countdownStatus === 'paused'){
+    return   <Controls onReset={this.onReset} onPause= {this.onPause} Status={this.state.countdownStatus}/>
+} else if (this.state.countdownStatus === 'stopped'){
+return <CountdownForm onSearch={this.setTime}/>
+}
+
+},
     render: function(){
         return (
             <div>
                 <h1 className="title">Countdown Timer</h1>
                 <Clock totalSeconds={this.state.time}/>
-                {this.state.countdownStatus === 'started' ? <Controls onReset={this.onReset} onPause= {this.onPause} Status={this.state.countdownStatus}/> : <CountdownForm onSearch={this.setTime}/>}
+                <div className="row">
+                    <div className="small-6 large-4 columns small-offset-3 large-offset-4">
+                {this.buttonrender()}
+            </div>
+            </div>
+
 
 
             </div>

@@ -5,22 +5,25 @@ var Controls = React.createClass({
     renderbuttontext: function (){
             var countdownStatus = this.props.Status;
             switch (countdownStatus){
-                case 'stopped':
-                return(<button className="button primary expanded">Start</button>);
+                case 'paused':
+                return(<button onClick={this.props.onPause} className="button primary expanded">Continue</button>);
                 break;
+                case 'stopped':
                 case 'started':
                 return(<button onClick={this.props.onPause} className="button secondary expanded">Pause</button>);
+                break;
+                case 'Timerstarted':
                 break;
             }
         },
     render: function(){
         return (
-            <div className="row">
-            <div className="controls small-6 large-4 columns small-offset-3 large-offset-4">
+
+            <div className="controls ">
                 {this.renderbuttontext()}
-                <button onClick={this.props.onReset} className="button expanded alert">Reset</button>
+                <button onClick={this.props.onReset} className="button expanded alert">Stop</button>
             </div>
-            </div>
+        
         );
     }
 });

@@ -1,4 +1,4 @@
-var Controls = require('controls');
+ var Controls = require('controls');
 
 var Timer = React.createClass({
     getInitialState: function() {
@@ -17,7 +17,7 @@ var Timer = React.createClass({
     onStart: function() {
         var timer = this.state.time
         this.setState({
-            timerStatus: 'started'
+            timerStatus: 'Timerstarted'
         });
         this.timer = setInterval(() => {
             timer = timer + 1;
@@ -27,6 +27,10 @@ var Timer = React.createClass({
         }, 1000);
 
 
+    },renderButtons: function () {
+        if (this.state.timerStatus === 'Timerstarted'){
+            return <Controls Status={this.state.timerStatus} onReset={this.onReset}/>
+        } else {return <button onClick={this.onStart} className="button primary hollow expanded">Start</button>}
     },
     render: function() {
         return (
@@ -34,8 +38,8 @@ var Timer = React.createClass({
                 <h1 className="text-center">Timer</h1>
                 <Clock totalSeconds={this.state.time}/>
                 <div className="row">
-                    <div className="small-6 columns small-offset-3">
-                        {this.state.timerStatus === 'started' ? <Controls Status={this.state.timerStatus} onReset={this.onReset}/> : <button onClick={this.onStart} className="button primary expanded hollow ">Start</button> }
+                    <div className="controls small-6 large-4 columns small-offset-3 large-offset-4">
+                        {this.renderButtons()}
                     </div>
                 </div>
             </div>

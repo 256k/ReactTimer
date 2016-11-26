@@ -13,14 +13,12 @@ var CountdownForm = React.createClass({
     },
     render : function() {
         return (
-            <div className="row">
-                <div className="small-6 large-4 columns small-offset-3 large-offset-4">
-                    <form onSubmit={this.onFormSubmit}>
+
+                    <form onSubmit={this.onFormSubmit} className="controls">
                         <input type="text" ref="time" placeholder="enter total amount of seconds here"/>
                         <button className="expanded hollow button">Start</button>
                     </form>
-                </div>
-            </div>
+
         );
     }
 });
