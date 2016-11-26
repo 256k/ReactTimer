@@ -5,7 +5,7 @@
   "main": "bundle.js",
   "scripts": {
     "test": "karma start",
-    "start": "webpack-dev-server --progress --inline"
+    "start": ""
   },
   "author": "Fayek Helmi",
   "license": "",
