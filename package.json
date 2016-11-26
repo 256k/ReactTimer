@@ -2,7 +2,7 @@
   "name": "timer",
   "version": "2.0.0",
   "description": "Timer app + testing",
-  "main": "index.js",
+  "main": "bundle.js",
   "scripts": {
     "test": "karma start",
     "start": "webpack-dev-server --progress --inline"
