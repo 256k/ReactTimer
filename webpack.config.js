@@ -12,7 +12,7 @@ module.exports = {
   plugins: [
     new webpack.ProvidePlugin({
       '$': 'jquery',
-      'jQuery': 'jQuery',
+      'jQuery': 'jquery',
       'React': 'react',
       'Clock': 'clock',
       'ReactDOM': 'react-dom',
