@@ -7,8 +7,8 @@
     "test": "karma start",
     "start": "webpack-dev-server --progress --inline"
   },
-  "author": "Andrew Mead",
-  "license": "MIT",
+  "author": "Fayek Helmi",
+  "license": "",
   "dependencies": {
     "axios": "^0.9.1",
     "express": "^4.13.4",
